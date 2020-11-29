@@ -1,0 +1,63 @@
+#content {
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s;
+
+  .toggle-button {
+    margin-bottom: 10px;
+  }
+
+  button.btn {
+    border: none;
+    box-shadow: none;
+  }
+
+  button.btn.active {
+    background-color: #C8C8C8;
+
+  }
+
+  button.btn.btn-custom:hover {
+    background-color: #E8E8E8;
+  }
+
+  .shortcuts-table {
+    margin-top: 30px;
+  }
+}
+
+
+
+
+// ********************************************************
+// Added
+table {
+  width: 100%;
+  overflow: hidden;
+  margin: auto;
+  box-shadow: 0 0 20px #C8C8C8;
+}
+
+.mat-column-shift,
+.mat-column-ctrl,
+.mat-column-opt,
+.mat-column-cmd,
+.mat-column-otherKeys {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.mat-column-description {
+  flex: 0 0 70%;
+  width: 70%;
+}
+
+.mat-row:nth-child(odd) {
+  background: #F0F0F0;
+}
+
+.mat-cell,
+.mat-header-cell {
+  padding: 10px 20px;
+}

@@ -1,0 +1,78 @@
+<!-- Page Content  -->
+<div id="content">
+
+  <!-- ******************************************************************* -->
+
+  <div class="btn-group flex-wrap btn-toolbar">
+    <button type="button" [class]="style.classes"
+      (click)="changeActiveShortcut(style.type)"
+      [class.active]="isShortcutActive(style.type)"
+      *ngFor="let style of buttonStyles">
+
+      <img [src]="getIcon(style.type)" alt="" style="height: 20px;">&nbsp;
+      {{style.type}}
+    </button>
+  </div>
+
+
+  <!-- <img src="../assets/img/icons/shortcuts/chrome.png" alt=""
+      style="height: inherit;"> -->
+
+
+
+  <!-- ******************************************************************* -->
+  <table mat-table [dataSource]="datasource"
+    class="mat-elevation-z8 shortcuts-table">
+
+    <ng-container matColumnDef="shift">
+      <th mat-header-cell *matHeaderCellDef> Shift </th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="element.shift">
+          ⇧
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ctrl">
+      <th mat-header-cell *matHeaderCellDef> Control </th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="element.ctrl">
+          ⌃
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="opt">
+      <th mat-header-cell *matHeaderCellDef> Option </th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="element.opt">
+          ⌥
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cmd">
+      <th mat-header-cell *matHeaderCellDef> Command </th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="element.cmd">
+          ⌘
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="otherKeys">
+      <th mat-header-cell *matHeaderCellDef> Others </th>
+      <td mat-cell *matCellDef="let element"> {{element.otherKeys}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"
+      style="display: none;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>
